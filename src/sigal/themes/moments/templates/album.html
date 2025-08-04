@@ -39,13 +39,33 @@
         <!-- Thumbnail navigation bar -->
         <div class="thumbnail-navigation">
           {% for media in album.medias %}
+
+          {% set details_parts = [] %}
+          {% if media.exif.iso %}
+            {% set _ = details_parts.append('ISO ' ~ media.exif.iso) %}
+          {% endif %}
+          {% if media.exif.fstop %}
+            {% set fstop_display = media.exif.fstop|int if media.exif.fstop == media.exif.fstop|int else media.exif.fstop %}
+            {% set _ = details_parts.append('F' ~ fstop_display) %}
+          {% endif %}
+          {% if media.exif.focal %}
+            {% set _ = details_parts.append(media.exif.focal ~ 'mm') %}
+          {% endif %}
+          {% if media.exif.exposure %}
+            {% set _ = details_parts.append(media.exif.exposure ~ 's') %}
+          {% endif %}
+
+          {% if media.exif and media.exif.dateobj %}
+            {% set date_display = media.exif.dateobj.strftime('%Y-%m-%d %H:%M:%S') %}
+          {% else %}
+          {% set date_display = '未知日期' %}
+          {% endif %}
+
           <div class="container-test" style="display: none;">{{ media }}</div>
           <a href="#" class="thumbnail-link active"
               data-src="{{ media.url }}"
-              data-details="{{ ['ISO ', media.exif.iso, ' F', 
-              media.exif.fstop|int if media.exif.fstop == media.exif.fstop|int else media.exif.fstop,
-               ' ', media.exif.focal, 'mm ', media.exif.exposure, 's'] | join("")}}"
-              data-date="{{ media.exif.dateobj.strftime('%Y-%m-%d %H:%M:%S') }}"
+              data-details="{{ details_parts | join(' ') if details_parts else '无EXIF信息' }}"
+              data-date="{{ date_display }}"
               data-brand="{{ [media.exif.Make, media.exif.Model] | join(" ") }}"
               data-model=""
               data-lens="{{ media.exif.LensModel }}"
