@@ -345,7 +345,7 @@ def get_exif_tags(data, datetime_format="%c"):
     logger = logging.getLogger(__name__)
     simple = {}
 
-    for tag in ("Model", "Make", "LensModel"):
+    for tag in ("Model", "Make", "LensModel", "LensMake", "FocalLengthIn35mmFilm"):
         if tag in data:
             val = data[tag][0] if isinstance(data[tag], tuple) else data[tag]
             simple[tag] = str(val).strip()

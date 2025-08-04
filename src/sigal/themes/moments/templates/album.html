@@ -38,7 +38,7 @@
 
         <!-- Thumbnail navigation bar -->
         <div class="thumbnail-navigation">
-          {% for media in album.medias %}
+          {% for media in album.medias  | sort(attribute='filename') | reverse %}
 
           {% set details_parts = [] %}
           {% if media.exif.iso %}
@@ -48,8 +48,8 @@
             {% set fstop_display = media.exif.fstop|int if media.exif.fstop == media.exif.fstop|int else media.exif.fstop %}
             {% set _ = details_parts.append('F' ~ fstop_display) %}
           {% endif %}
-          {% if media.exif.focal %}
-            {% set _ = details_parts.append(media.exif.focal ~ 'mm') %}
+          {% if media.exif.FocalLengthIn35mmFilm %}
+            {% set _ = details_parts.append(media.exif.FocalLengthIn35mmFilm ~ 'mm') %}
           {% endif %}
           {% if media.exif.exposure %}
             {% set _ = details_parts.append(media.exif.exposure ~ 's') %}
