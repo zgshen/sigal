@@ -25,20 +25,20 @@
             <div class="photo-info">
                 <div class="left-info">
                     <span id="cameraBrand" class="brand"></span>
-					<span id="lensModel" class="detail"></span>
+					          <span id="lensModel" class="detail"></span>
                     <span id="photoDetails" class="detail"></span>
                     <span id="cameraModel" style="display:none"></span>
                 </div>
                 <div class="right-info">
                     <span id="remark"></span>
-					<span id="photoDate"></span>
+				          	<span id="photoDate"></span>
                 </div>
             </div>
         </div>
 
         <!-- Thumbnail navigation bar -->
         <div class="thumbnail-navigation">
-          {% for media in album.medias  | sort(attribute='filename') | reverse %}
+          {% for media in album.medias  | sort(attribute='filename') %}
 
           {% set details_parts = [] %}
           {% if media.exif.iso %}

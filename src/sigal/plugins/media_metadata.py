@@ -18,6 +18,9 @@ def load_media_json(album):
     thumb = data.get("custom_thumbnail")
     if thumb:
       album.custom_thumbnail = os.path.join(album.url, "thumbnails/", thumb)
+    datetime = data.get("datetime")
+    if datetime:
+      album.datetime = datetime
 
     # 设置每张图片的 title 和 description
     images_meta = data.get("images", {})
