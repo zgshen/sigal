@@ -7,7 +7,9 @@ Fork by Sigal_
 - 新增插件 media_metadata，用于设置相册和图片信息；
 - 部署仓库 https://github.com/zgshen/gallery
 - moments 主题下的相册和图片信息可以通过 media_metadata 插件设置，每个相册下可以用 json 文件设置一些信息：
-::
+
+ .. code-block:: json
+  
     {
       "title": "相册名",
       "description": "相册描述",
