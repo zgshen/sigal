@@ -22,4 +22,11 @@ Fork by Sigal_
       }
     } 
 
+本地测试执行
+ .. code-block:: json
+  cd sigal
+  virtualenv venv
+  . venv/bin/activate
+  pip install -e .
+
 .. _Sigal: https://github.com/saimn/sigal/

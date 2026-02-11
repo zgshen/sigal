@@ -12,8 +12,10 @@ def load_media_json(album):
         data = json.load(f)
 
     # 设置 album.title 和 album.description
-    album.title = data.get("title", album.title)
-    album.description = data.get("description", album.description)
+    album.title = data.get("title", "")
+    album.description = data.get("description", "")
+    album.reverse = data.get("reverse", False)
+    
     # 设置 album.custom_thumbnail
     thumb = data.get("custom_thumbnail")
     if thumb:

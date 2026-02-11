@@ -38,7 +38,7 @@
 
         <!-- Thumbnail navigation bar -->
         <div class="thumbnail-navigation">
-          {% for media in album.medias  | sort(attribute='filename') %}
+          {% for media in album.medias  | sort(reverse=album.reverse, attribute='date') %}
 
           {% set details_parts = [] %}
           {% if media.exif.iso %}
@@ -61,7 +61,7 @@
           {% set date_display = '未知日期' %}
           {% endif %}
 
-          <div class="container-test" style="display: none;">{{ media }}</div>
+          
           <a href="#" class="thumbnail-link active"
               data-src="{{ media.url }}"
               data-details="{{ details_parts | join(' ') if details_parts else '无EXIF信息' }}"
