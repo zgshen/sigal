@@ -28,6 +28,11 @@ a:hover {
   color: #C00;
 }
 
+abbr[title] {
+  text-decoration: none;
+  border-bottom: none;
+}
+
 img {
   width: auto;
   max-width: 100%;
@@ -106,6 +111,9 @@ figcaption {
   margin: auto;
   background: #EEE none repeat scroll 0 0;
   float:left;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
 }
 
 .thumbnail {
@@ -116,13 +124,17 @@ figcaption {
   max-width: 85%;
   height: auto;
   margin: 0 2px 5px 2px;
-  border: 10px solid #fff;
+  /*border: 10px solid #fff;*/
   border-radius: 2px 2px 2px 2px;
   box-shadow: 0 0 3px #B1B1B1;
-  padding: 0 0 2px;
+  /*padding: 0 0 2px;*/
 }
 .thumbnail img:hover {
   box-shadow: 0 0 5px #818181;
+}
+
+.breadcrumb {
+  margin-left: 1em;
 }
 
 .album_title {
@@ -170,6 +182,9 @@ figcaption {
   height: auto;
   float: left;
   padding-top:1em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
 }
 .gallery a {
   line-height: 0;
@@ -179,8 +194,24 @@ figcaption {
 .gallery__img--main,
 .gallery__img--secondary {
   width: 25%;
-  float:left;
   margin-bottom: 1em;
+}
+
+.menu-img.thumbnail,
+.gallery figure.thumbnail {
+  box-sizing: border-box;
+  padding: 0 4px;
+  float: none;
+}
+
+.menu-img.thumbnail > a,
+.gallery figure.thumbnail > a {
+  display: block;
+}
+
+.menu-img.thumbnail > a > img,
+.gallery figure.thumbnail > a > img {
+  height: auto;
 }
 
 .gallery__title {
