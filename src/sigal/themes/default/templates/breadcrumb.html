@@ -2,7 +2,7 @@
   <div class="breadcrumb">
     <h2>
       {% for url, title in album.breadcrumb %}
-        <a href="{{ url }}">{{ title }}</a>{% if not loop.last %} » {% endif %}
+        <p href="{{ url }}">{{ title }}</p>{% if not loop.last %} » {% endif %}
       {% endfor -%}
     </h2>
   </div>

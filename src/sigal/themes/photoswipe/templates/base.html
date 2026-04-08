@@ -26,13 +26,14 @@
 
       <div class="content">
         {% include 'breadcrumb.html' %}
-        {% block content %}{% endblock %}
 
         {% if album.description %}
         <div id="description" class="row">
         {{ album.description }}
         </div>
         {% endif %}
+        
+        {% block content %}{% endblock %}
       </div>
 
       {% include 'footer.html' %}
