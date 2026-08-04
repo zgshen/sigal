@@ -26,8 +26,8 @@ Fork by Sigal_
  .. code-block:: json
 
     cd sigal
-    virtualenv venv
-    . venv/bin/activate
+    python3 -m venv venv
+    source venv/bin/activate
     pip install -e .
 
 .. _Sigal: https://github.com/saimn/sigal/
