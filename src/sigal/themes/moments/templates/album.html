@@ -45,7 +45,8 @@
             {% set _ = details_parts.append('ISO ' ~ media.exif.iso) %}
           {% endif %}
           {% if media.exif.fstop %}
-            {% set fstop_display = media.exif.fstop|int if media.exif.fstop == media.exif.fstop|int else media.exif.fstop %}
+            {% set fstop_rounded = media.exif.fstop|float|round(2) %}
+            {% set fstop_display = fstop_rounded|int if fstop_rounded == fstop_rounded|int else fstop_rounded %}
             {% set _ = details_parts.append('F' ~ fstop_display) %}
           {% endif %}
           {% if media.exif.FocalLengthIn35mmFilm %}

@@ -8,8 +8,14 @@ def load_media_json(album):
     if not os.path.exists(json_path):
         return
 
-    with open(json_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
+    try:
+        with open(json_path, "r", encoding="utf-8-sig") as f:
+            data = json.load(f)
+    except UnicodeDecodeError:
+        # Older metadata files created on Chinese Windows systems may be
+        # encoded as GBK. GB18030 is a compatible superset.
+        with open(json_path, "r", encoding="gb18030") as f:
+            data = json.load(f)
 
     # 设置 album.title 和 album.description
     album.title = data.get("title", "")

@@ -83,11 +83,19 @@ figcaption {
 }
 
 .content {
-  max-width: 50vw;
+  width: min(90vw, 1080px);
+  max-width: none;
   margin: 24px auto;
+  padding:1em 0;
 }
 @media (max-width: 768px) {
+    body {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
     .content {
+        width: auto;
         max-width: 100vw;
         padding: 0px 5px;
     }
@@ -110,11 +118,20 @@ figcaption {
 }
 
 .album-list {
-  width: 100%;
   padding: 2em 0;
-  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2em 0;
   background: white;
-  float:left;
+}
+
+/* Album covers must follow a regular grid.  The generic .menu-img rule below
+   uses floats for the media gallery, which otherwise makes album cards flow
+   around covers with different heights. */
+.album-list .menu-img {
+  width: auto;
+  float: none;
+  margin-bottom: 0;
 }
 
 .thumbnail {
@@ -125,10 +142,10 @@ figcaption {
   max-width: 85%;
   height: auto;
   margin: 0 2px 5px 2px;
-  border: 10px solid #fff;
+  /*border: 10px solid #fff;*/
   border-radius: 2px 2px 2px 2px;
   box-shadow: 0 0 3px #B1B1B1;
-  padding: 0 0 2px;
+  /*padding: 0 0 2px;*/
 }
 .thumbnail img:hover {
   box-shadow: 0 0 5px #818181;
@@ -191,7 +208,7 @@ figcaption {
 
 .menu-img,
 .gallery__img--secondary {
-  width: 25%;
+  width: 33%;
   float:left;
   margin-bottom: 1em;
 }
@@ -219,7 +236,7 @@ footer span:not(:last-child):after {
 
 @media screen and (max-width: 700px) {
   h1 {
-    font-size: 40px;
+    font-size: 30px;
   }
   .menu-img,
   .gallery__img--secondary {
@@ -229,6 +246,10 @@ footer span:not(:last-child):after {
 
 
 @media screen and (max-width: 500px) {
+  .album-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .menu-img,
   .gallery__img--secondary {
     width: 50%;
@@ -237,6 +258,10 @@ footer span:not(:last-child):after {
 
 
 @media screen and (max-width: 300px) {
+  .album-list {
+    grid-template-columns: 1fr;
+  }
+
   .menu-img,
   .gallery__img--secondary {
     width: 100%;

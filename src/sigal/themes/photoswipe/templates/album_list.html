@@ -4,7 +4,7 @@
   {% for alb in album.albums %}
     <div class="menu-img thumbnail">
       <a href="{{ alb.url }}">
-        <img src="{{ alb.thumbnail }}" class="album_thumb"
+        <img src="{{ alb.custom_thumbnail or alb.thumbnail }}" class="album_thumb"
              alt="{{ alb.title }}" title="{{ alb.title }}" /></a>
       <span class="album_title">{{ alb.title }}</span>
     </div>
