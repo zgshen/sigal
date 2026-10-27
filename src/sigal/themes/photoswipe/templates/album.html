@@ -55,7 +55,7 @@
   <div class="gallery">
     {% for media in album.medias %}
       {% if media.type == "image" %}
-        <figure class="gallery__img--{{ "main" if loop.first else "secondary" }} thumbnail">
+        <figure class="gallery__img--secondary thumbnail">
           <a href="{{ media.url }}"
              data-pswp-width="{{media.size.width}}"
              data-pswp-height="{{media.size.height}}"
