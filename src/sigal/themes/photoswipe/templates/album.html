@@ -63,7 +63,8 @@
              data-big="{{ media.big_url }}"
              {%- endif -%}
              >
-             <img src="{{ media.thumbnail }}" alt="{{ media.url }}" />
+             <img src="{{ media.thumbnail }}" alt="{{ media.url }}"
+                  loading="{{ 'eager' if loop.first else 'lazy' }}" decoding="async" />
           </a>
           <div class="pswp-caption-content">
             {{ img_description(media, with_big=False) }}
@@ -77,7 +78,8 @@
              data-pswp-type="video"
              data-pswp-width="800"
              data-pswp-height="600">
-            <img src="{{ media.thumbnail }}" alt="{{ media.url }}" />
+            <img src="{{ media.thumbnail }}" alt="{{ media.url }}"
+                 loading="{{ 'eager' if loop.first else 'lazy' }}" decoding="async" />
           </a>
           <div class="pswp-caption-content">
             {{ img_description(media, with_big=False) }}

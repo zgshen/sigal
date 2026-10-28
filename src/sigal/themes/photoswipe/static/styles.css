@@ -84,7 +84,7 @@ figcaption {
 }
 
 .content {
-  max-width: 1024px;
+  max-width: 90%;
   margin: 24px auto;
   padding:2em 0;
 }
@@ -134,10 +134,10 @@ figcaption {
 }
 
 .breadcrumb {
-  margin-left: 1em;
+  margin-left: 1.5em;
 }
 #description {
-  margin-left: 1.3em;
+  margin-left: 1.7em;
   font-size: 14px;
 }
 
@@ -197,7 +197,7 @@ figcaption {
 .menu-img,
 .gallery__img--main,
 .gallery__img--secondary {
-  width: 33%;
+  width: 20%;
   margin-bottom: 1em;
 }
 
@@ -246,7 +246,7 @@ footer span:not(:last-child):after {
   .menu-img,
   .gallery__img--main,
   .gallery__img--secondary {
-    width: 33%;
+    width: 20%;
   }
 }
 
