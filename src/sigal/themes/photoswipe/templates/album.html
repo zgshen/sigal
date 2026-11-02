@@ -53,7 +53,7 @@
   {% include 'download_zip.html' %}
   {% include 'map.html' %}
   <div class="gallery">
-    {% for media in album.medias %}
+    {% for media in album.medias | sort(reverse=album.reverse, attribute='date') %}
       {% if media.type == "image" %}
         <figure class="gallery__img--secondary thumbnail">
           <a href="{{ media.url }}"

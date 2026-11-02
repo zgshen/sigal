@@ -8,6 +8,7 @@ __pycache__/
 .pytest_cache/
 .ropeproject/
 .tox/
+.vscode/
 MANIFEST
 _build/
 build/
